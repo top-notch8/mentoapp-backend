@@ -20,10 +20,16 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 // ✅ Middleware setup
+const cors = require('cors');
+
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: [
+    'http://localhost:3000', // local dev
+    'https://mentor-app-two.vercel.app' // deployed frontend
+  ],
   credentials: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
