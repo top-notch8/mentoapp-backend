@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const cors = require('cors');
+const cors = require('cors'); // ✅ Only declared once
 const path = require('path');
 
 // 🔐 Load environment variables
@@ -20,8 +20,6 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 // ✅ Middleware setup
-const cors = require('cors');
-
 app.use(cors({
   origin: [
     'http://localhost:3000', // local dev
